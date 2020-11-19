@@ -11,10 +11,14 @@ public class RequestText : MonoBehaviour
 
     private Text textField;
 
-    void Start()
+    IEnumerator Start()
     {
         textField = GetComponent<Text>();
-        StartCoroutine(RequestTextRoutine());
+        while (true)
+        {
+            StartCoroutine(RequestTextRoutine());
+            yield return new WaitForSeconds(2);
+        }
     }
 
     IEnumerator RequestTextRoutine()
